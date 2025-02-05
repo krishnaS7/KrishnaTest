@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ip-check
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ip-check
+  template:
+    metadata:
+      labels:
+        app: ip-check
+    spec:
+      containers:
+      - name: ip-check-container
+        image: krishdocker7/python-ip-collision-check:latest
